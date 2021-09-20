@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-
+import {Form,Label,Input,Button} from './style/loginStyle'
 
 const initialFormState = {
     username: "",
@@ -35,32 +35,32 @@ const Login = () => {
 
     return (
         <>
-            <form onSubmit={handleLogin} className='login-form' >
+            <Form onSubmit={handleLogin} className='login-form' >
 
-                <label className='login-label' htmlFor="username">
+                <Label className='login-label' htmlFor="username">
                     Name:
-                    <input className="login-input"
+                    <Input className="login-input"
                         id="username"
                         type="text"
                         name="username"
                         onChange={inputChange}
                         value={formState.username}
                     />
-                </label>
-                <label className='login-label' htmlFor="password">
+                </Label>
+                <Label className='login-label' htmlFor="password">
                     Password:
-                    <input className="login-input"
+                    <Input className="login-input"
                         id="password"
                         type="text"
                         name="password"
                         onChange={inputChange}
                         value={formState.password}
                     />
-                </label>
+                </Label>
 
 
-                <button className={'login-button'}>Login</button>
-            </form>
+                <Button className={'login-button'}>Login</Button>
+            </Form>
             {error ? <p style={{ color: 'red' }}>{error}</p> : null}
 
 
