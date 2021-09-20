@@ -15,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+
       <Switch>
 
         <Route path='/login'>
@@ -36,6 +37,7 @@ function App() {
         <Route path='/'>
           <Home />
         </Route>
+
       </Switch>
 
     </div>
