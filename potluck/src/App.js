@@ -8,20 +8,23 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import AddPotluck from './components/AddPotluck';
-import schema from './components/formSchema';
+import schema from './components/PotluckSchema';
 import './App.css';
 
 const initialFormValues = {
-  name: '',
-  event: '',
-  description: '',
+  potluck_name: '',
+  date: '',
+  time: '',
+  location: '',
 }
 
 const initialFormErrors = {
-  name: '',
-  event: '',
-  description: '',
+  potluck_name: '',
+  date: '',
+  time: '',
+  location: '',
 }
+
 
 const initialPotluck = [];
 const initialDisabled = true;

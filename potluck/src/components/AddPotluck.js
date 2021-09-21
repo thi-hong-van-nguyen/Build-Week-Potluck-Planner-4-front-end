@@ -25,35 +25,45 @@ export default function AddPotluck(props) {
             <div className='create-potluck'>
                 <h1>Create a Potluck!</h1>
                 <div className='errors'>
-                    <div>{errors.name}</div>
-                    <div>{errors.event}</div>
-                    <div>{errors.description}</div>
+                    <div>{errors.potluck_name}</div>
+                    <div>{errors.date}</div>
+                    <div>{errors.time}</div>
+                    <div>{errors.location}</div>
                 </div>
 
-                <h3>Type Your Name</h3>
-                <label>Name
+                <h3>Type Your Potluck Name</h3>
+                <label>
                     <input
-                        value={values.name}
+                        value={values.potluck_name}
                         onChange={onChange}
-                        name='name'
+                        name='potluck_name'
                         type='text'
                     />    
                 </label>
-                <h3>Name Your Event</h3>
-                <label>Event
+                <h3>Name Your Event Date</h3>
+                <label>
                     <input
-                        value={values.event}
+                        value={values.date}
                         onChange={onChange}
-                        name='event'
+                        name='date'
                         type='text'
                     />    
                 </label>
-                <h3>Give A Description</h3>
-                <label>Event Description
+                <h3>What Time Will Your Potluck Begin?</h3>
+                <label>
                     <input
-                        value={values.description}
+                        value={values.time}
                         onChange={onChange}
-                        name='description'
+                        name='time'
+                        type='text'
+                    />    
+                </label>
+                <h3>Where Will Your Potluck Take Place?</h3>
+                <label>
+                    <input
+                        value={values.location}
+                        onChange={onChange}
+                        name='location'
                         type='text'
                     />    
                 </label>
