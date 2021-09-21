@@ -43,11 +43,10 @@ table {
 	border-spacing: 0;
 }
 *{
-    box-sizing: border-box; /*when I give an item a width I want padding and margin to be applied within that width not in addition to it*/
+    box-sizing: border-box;
     padding:0;
     margin:0;
     max-width:100%;
-    /* border:1px solid grey; */
 }
 
 /*
@@ -89,6 +88,15 @@ Potluck styles
   align-items: center;
   box-sizing: border-box;
   color: #4f5c65;
+  font-size: 1.4em;
+}
+h1 {
+  margin: .67em 0;
+  margin-top: 0px;
+  margin-bottom: 1.6em;
+  font-size: 2.5em;
+  font-weight: 700;
+  letter-spacing: -0.04em;
 }
 .button {
   padding: 19px 36px;
@@ -106,4 +114,16 @@ Potluck styles
 }
 .button:hover {
   opacity: 0.75;
+}
+input {
+  width: 100%;
+  margin: 5px 0 0;
+  display: block;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.3s;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  background-color: #fff;
 }
