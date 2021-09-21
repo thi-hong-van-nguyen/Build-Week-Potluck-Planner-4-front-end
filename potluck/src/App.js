@@ -82,6 +82,7 @@ function App() {
 
     <div className="App">
       <NavBar />
+
       <Switch>
 
         <Route path='/login'>
@@ -109,6 +110,7 @@ function App() {
         <Route path='/'>
           <Home />
         </Route>
+
       </Switch>
 
     </div>
