@@ -70,9 +70,10 @@ function App() {
 
   const formSubmit = () => {
     const newPotluck = {
-      name: formValues.name.trim(),
-      event: formValues.event.trim(),
-      description: formValues.description.trim(),     
+      potluck_name: formValues.potluck_name.trim(),
+      date: formValues.date.trim(),
+      time: formValues.time.trim(),  
+      location: formValues.location.trim(),     
     }
     postNewPotluck(newPotluck);
   }
