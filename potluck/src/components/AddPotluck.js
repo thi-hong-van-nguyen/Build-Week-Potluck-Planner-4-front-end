@@ -23,14 +23,13 @@ export default function AddPotluck(props) {
     return (
         <form className='potluck' onSubmit={onSubmit}>
             <div className='create-potluck'>
-                <h2>Create a Potluck!</h2>
+                <h1>Create a Potluck!</h1>
                 <div className='errors'>
                     <div>{errors.name}</div>
                     <div>{errors.event}</div>
                     <div>{errors.description}</div>
                 </div>
-            </div>
-            <div>
+
                 <h3>Type Your Name</h3>
                 <label>Name
                     <input
@@ -58,8 +57,8 @@ export default function AddPotluck(props) {
                         type='text'
                     />    
                 </label>
+                <button className='button' disabled={disabled}>Submit</button>
             </div>
-            <button className='button' disabled={disabled}>Submit</button>
         </form>
     )
 }
