@@ -38,14 +38,13 @@ export default function AddPotluck() {
             foods: state.foods.trim(),
             guests: state.guests.trim(),
         };
-        axiosWithAuth()
-            .post('/api/potlucks', newPotluck)
-            .then(res => {
-                console.log(res) //wait for backend
-                //set the local potlucks array to the new one
-                push('/potlucks')
-            })
-            .catch(err => console.log(err))
+        console.log(newPotluck)
+        // axiosWithAuth()
+        //     .post('/api/potlucks/', newPotluck)
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+        //     .catch(err => console.log(err))
     }
 
     return (

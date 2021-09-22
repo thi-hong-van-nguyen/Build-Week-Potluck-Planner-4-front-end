@@ -12,7 +12,6 @@ import reducer from './reducers';
 import './index.css';
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
-console.log(store.getState())
 
 ReactDOM.render(
   <Provider store={store}>

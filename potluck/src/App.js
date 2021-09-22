@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -18,9 +18,11 @@ function App(props) {
     if(localStorage.getItem('token')) {
       props.loginStatus(true)
     } else {
-      props.loginStatus(false)
+      props.loginStatus(false);
     }
   }, []);
+
+
 
   return (
     <div className="App">
