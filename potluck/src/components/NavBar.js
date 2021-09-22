@@ -9,6 +9,7 @@ export default function NavBar() {
             <div>
                 <ul className='nav-links'>
                     <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/potlucks'>View Potlucks</Link></li>
                     <li><Link to='/add'>Create Potluck</Link></li>
                     <li><Link to='/signup'>Sign up</Link></li>
                     <li><Link to='/login'>Log in</Link></li>
