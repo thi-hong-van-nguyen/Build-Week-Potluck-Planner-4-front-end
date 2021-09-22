@@ -43,10 +43,12 @@ export default function Signup() {
         axios.post("", credentials)
             .then(res => {
                 console.log(res)
-                push()
+                setCredentials(signUpValue);
+                push('/')
             })
             .catch(err => {
-                setErrors('Please try again')
+                setErrors(err)
+                setCredentials(signUpValue);
             })
     }
 
@@ -54,16 +56,20 @@ export default function Signup() {
 
     return (
         <div className="signupPage">
-            <h1 className="h1">Signup Today To Create A Potluck!</h1>
-            <div className='errors'>
-                <div>{errors.username}</div>
-                <div>{errors.password}</div>
-            </div>
+            <div className="img">
+                <h1 className="h1">Signup Today To Create A Potluck!</h1>
+                <div className='errors'>
+                    <div>{errors.username}</div>
+                    <div>{errors.password}</div>
+                </div>
 
-            <div className="signup-container">
+
+
                 <form className='signup-form' onSubmit={signup}>
-                    <label>Username:
+                    <h2 className='signup'>Username:</h2>
+                    <label >
                         <input
+                            className="signup-input"
                             name="username"
                             placeholder="Username"
                             value={credentials.username}
@@ -71,9 +77,10 @@ export default function Signup() {
                             onChange={changeHandler}
                         />
                     </label>
-
-                    <label>Password:
+                    <h2 className='signup'>Password:</h2>
+                    <label >
                         <input
+                            className="signup-input"
                             name="password"
                             placeholder="Password"
                             value={credentials.password}
@@ -83,13 +90,11 @@ export default function Signup() {
                         />
 
                     </label>
-                    <button >Signup</button>
+                    <button className="signup-button">Signup</button>
 
                 </form>
+
             </div>
-
-
-
         </div>
     )
 }
