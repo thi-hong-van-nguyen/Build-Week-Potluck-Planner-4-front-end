@@ -132,6 +132,57 @@ h1 {
   text-align: center;
 }
 
+
+/* SignUp styles */
+.signupPage{
+  background-image:linear-gradient(rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.171)), url("https://www.signupgenius.com/images/new-landing/potluck/optimized/hero.jpg");
+  height:100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.h1{
+  display: flex;
+  justify-content: center;
+  color: #506675;
+  font-size: 3rem;
+}
+.signup-form{
+  display: flex;
+   flex-direction: column;
+   width: 100%;
+   max-width: 400px;
+   margin: 0 auto;
+   margin-top: 10rem;
+   border: 3px black solid;
+   background-color:rgba(48,71,94,0.9) ;
+   padding:30px;
+  
+   
+  
+}
+.signup{
+  font-size: 1.6rem;
+  color:white
+}
+.signup-input{
+padding:0.7rem;
+width:100%
+}
+.signup-button{
+  color:white;
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding:1rem;
+  background-color: #4f5c65;
+  }
+
+.signup-button:hover{
+  background-color: antiquewhite;
+  color:#4f5c65;
+  transition:0.6s;
+}
+
 input {
   width: 100%;
   margin: 5px 0 0;
@@ -171,3 +222,4 @@ Home Page
 .Home h1 {
   color: #f7fafc;
 }
+
