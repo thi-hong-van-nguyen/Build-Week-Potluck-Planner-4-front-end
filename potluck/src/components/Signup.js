@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import * as yup from "yup";
 // import schema from './'
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
 const signUpValue = {
@@ -26,32 +27,23 @@ export default function Signup() {
             ...credentials,
             [name]: value
         })
-    }
-
-    // const validate = (name, value) => {
-    //     yup.reach(schema, name)
-    //         .validate(value)
-    //         .then(() => setErrors({ ...errors, [name]: "" }))
-    //         .catch(err => setErrors({ ...errors, [name]: err.errors[0] }))
-    // }
+    };
 
     const signup = (event) => {
         event.preventDefault();
         if(credentials.username === '' || credentials.password === '') {
             setErrors('username and password are required fields.')
         } else {
-            axiosWithAuth()
-                .post("/api/users/register", credentials)
+            axios.post("https://potluck-planner-3.herokuapp.com//api/users/register", credentials)
                 .then(res => {
                     console.log(res)
-                    push('/')
+                    push('/login')
                 })
                 .catch(err => {
                     setErrors('Please try again')
                 })
         }
-
-    }
+    };
 
     return (
         <div className="signupPage">
@@ -59,8 +51,6 @@ export default function Signup() {
             <h1>Signup Today To Create A Potluck!</h1>
             </div>
             <div className='errors'>
-                {/* <div>{errors.username}</div>
-                <div>{errors.password}</div> */}
                 <div style={{ color: 'red' }}>{errors}</div>
             </div>
 
