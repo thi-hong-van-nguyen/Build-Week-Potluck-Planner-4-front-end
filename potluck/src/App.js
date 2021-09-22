@@ -13,8 +13,6 @@ import { loginStatus } from './actions';
 
 import './App.css';
 
-const initialPotluck = [];
-
 function App(props) {
   useEffect(() => {
     if(localStorage.getItem('token')) {
@@ -25,7 +23,6 @@ function App(props) {
   }, []);
 
   return (
-
     <div className="App">
       <NavBar />
 

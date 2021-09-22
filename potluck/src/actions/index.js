@@ -14,10 +14,12 @@ export const getPotlucks = () => dispatch => {
     axiosWithAuth()
         .get('/api/potlucks') //waiting for back-end
         .then(res => {
-            dispatch(fetchSuccess(res.data)) //wait for back-end
+            // dispatch(fetchSuccess(res.data)) //wait for back-end
+            console.log(res)
         })
         .catch(err => {
-            dispatch(fetchFailure("Cannot fetch potlucks"))
+            // dispatch(fetchFailure("Cannot fetch potlucks"))
+            console.log(err)
         })
 };
 
