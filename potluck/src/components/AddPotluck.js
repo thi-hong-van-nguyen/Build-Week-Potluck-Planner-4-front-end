@@ -1,97 +1,121 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import useForm from '../hooks/useForm';
+import schema from '../validations/PotluckSchema';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-export default function AddPotluck(props) {
-    const {
-        values,
-        submit,
-        change,
-        disabled,
-        errors,
-    } = props
+const initialState = {
+    potluck_name: '',
+    date: '',
+    time: '',
+    location: '',
+    foods: '',
+    guests: '',
+};
 
-    const onSubmit = evt => {
-        evt.preventDefault()
-        submit()
-    }
+const initialErrors = {
+    potluck_name: '',
+    date: '',
+    time: '',
+    location: '',
+    foods: '',
+    guests: '',
+};
 
-    const onChange = evt => {
-        const { name, value, checked, type } = evt.target;
-        const valueToUse = type === 'checkbox' ? checked : value;
-        change(name, valueToUse);
+const initialDisabled = true;
+
+export default function AddPotluck() {
+    const [ state, errors, disabled, handleChange ] = useForm(initialState, initialErrors, initialDisabled, schema)
+    const { push } = useHistory();
+
+    const submit = e => {
+        e.preventDefault();
+        const newPotluck = {
+            potluck_name: state.potluck_name.trim(),
+            date: state.date.trim(),
+            time: state.time.trim(),
+            location: state.location.trim(),
+            foods: state.foods.trim(),
+            guests: state.guests.trim(),
+        };
+        axiosWithAuth()
+            .post('/api/potlucks', newPotluck)
+            .then(res => {
+                console.log(res) //wait for backend
+                //set the local potlucks array to the new one
+                push('/potlucks')
+            })
+            .catch(err => console.log(err))
     }
 
     return (
-        <form className='potluck' onSubmit={onSubmit}>
+        <form className='potluck' onSubmit={submit}>
             <div>
-            <h1>Create a Potluck!</h1>
-            <p>This is the perfect place to create your potluck event!</p>
+                <h1>Create a Potluck!</h1>
+                <p>This is the perfect place to create your potluck event!</p>
             </div>
             <div className='create-potluck'>
-                <div className='errors'>
-                <div>{errors.potluck_name}</div>
-                <div>{errors.date}</div>
-                <div>{errors.time}</div>
-                <div>{errors.location}</div>
-                <div>{errors.foods}</div>
-                <div>{errors.guests}</div>
-            </div>
                 <h3>Type Your Potluck Name.</h3>
                 <label>
                     <input
-                        value={values.potluck_name}
-                        onChange={onChange}
+                        value={state.potluck_name}
+                        onChange={handleChange}
                         name='potluck_name'
                         type='text'
-                    />    
+                    />
                 </label>
+                <div style={{ color: 'red', fontSize: '1rem' }}>{errors.potluck_name}</div>
                 <h3>Name Your Event Date.</h3>
                 <label>
                     <input
-                        value={values.date}
-                        onChange={onChange}
+                        value={state.date}
+                        onChange={handleChange}
                         name='date'
                         type='text'
-                    />    
+                    />
                 </label>
+                <div style={{ color: 'red', fontSize: '1rem' }}>{errors.date}</div>
                 <h3>What Time Will Your Potluck Begin?</h3>
                 <label>
                     <input
-                        value={values.time}
-                        onChange={onChange}
+                        value={state.time}
+                        onChange={handleChange}
                         name='time'
                         type='text'
-                    />    
+                    />
                 </label>
+                <div style={{ color: 'red', fontSize: '1rem' }}>{errors.time}</div>
                 <h3>Where Will Your Potluck Take Place?</h3>
                 <label>
                     <input
-                        value={values.location}
-                        onChange={onChange}
+                        value={state.location}
+                        onChange={handleChange}
                         name='location'
                         type='text'
-                    />    
+                    />
                 </label>
-                <h3>What Foods Are Needed</h3>
+                <h3>What Foods Should Everyone Bring?</h3>
                 <label>
                     <input
-                        value={values.foods}
-                        onChange={onChange}
+                        value={state.foods}
+                        onChange={handleChange}
                         name='foods'
                         type='text'
-                    />    
+                    />
                 </label>
-                <h3>Invite Friends?</h3>
+                <h3>Who Would You Like To Invite?</h3>
                 <label>
                     <input
-                        value={values.guests}
-                        onChange={onChange}
+                        value={state.guests}
+                        onChange={handleChange}
                         name='guests'
                         type='text'
-                    />    
+                    />
                 </label>
-                <br/>
-                <button className='button' disabled={disabled}>Submit</button>
-            </div>         
+                <div style={{ color: 'red', fontSize: '1rem' }}>{errors.location}</div>
+                <br />
+                <button className='add-button' disabled={disabled}>Add Potluck</button>
+            </div>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vL4PW-dCxSrzSn0FZJtRurqf6QH8Gh2jag&usqp=CAU" alt="people around table eating" />
         </form>
     )
