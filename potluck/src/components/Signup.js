@@ -34,7 +34,7 @@ export default function Signup() {
         if(credentials.username === '' || credentials.password === '') {
             setErrors('username and password are required fields.')
         } else {
-            axios.post("https://potluck-planner-3.herokuapp.com//api/users/register", credentials)
+            axios.post("https://potluck-planner-3.herokuapp.com/api/users/register", credentials)
                 .then(res => {
                     console.log(res)
                     push('/login')

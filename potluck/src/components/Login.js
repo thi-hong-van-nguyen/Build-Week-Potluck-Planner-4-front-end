@@ -25,13 +25,12 @@ const Login = (props) => {
     const handleLogin = (e) => {
         e.preventDefault();
         axiosWithAuth()
-            .post('/api/users/login', formState)// we neeed to enter actual ural here form back end
+            .post('/api/users/login', formState)
             .then(res => {
-                localStorage.setItem('token',/** whatever is in the response */)
+                localStorage.setItem('token', res.data.token);
                 localStorage.setItem('username', formState.username);
                 props.loginStatus(true);
                 push('/')
-
             })
             .catch(err => {
                 setError('username and/or password is invalid.')
