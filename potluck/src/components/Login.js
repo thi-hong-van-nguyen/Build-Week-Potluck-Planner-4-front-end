@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { Form, Label, Input, Button } from './style/loginStyle';
+import { loginStatus } from '../actions';
 
 const initialFormState = {
     username: "",
     password: "",
 };
 
-const Login = () => {
+const Login = (props) => {
     const { push } = useHistory();
     const [formState, setFormState] = useState(initialFormState);
     const [error, setError] = useState('');
@@ -26,6 +28,8 @@ const Login = () => {
             .post('/api/users/login', formState)// we neeed to enter actual ural here form back end
             .then(res => {
                 localStorage.setItem('token',/** whatever is in the response */)
+                localStorage.setItem('username', formState.username);
+                props.loginStatus(true);
                 push('/')
 
             })
@@ -67,4 +71,4 @@ const Login = () => {
         </>
     )
 }
-export default Login
+export default connect(null, {loginStatus})(Login);

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import NavBar from './components/NavBar';
 import Home from './components/Home';
@@ -8,20 +9,20 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import AddPotluck from './components/AddPotluck';
 import Potlucks from './components/Potlucks';
+import { loginStatus } from './actions';
 
 import './App.css';
 
 const initialPotluck = [];
 
-function App() {
-  const [potlucks, setPotlucks] = useState(initialPotluck)
-
-  // const getPotlucks = () => {
-  //   axios.get('api')
-  //   .then(res => {
-  //     setPotlucks(res.data);
-  //   }).catch(err => console.error(err))
-  // }
+function App(props) {
+  useEffect(() => {
+    if(localStorage.getItem('token')) {
+      props.loginStatus(true)
+    } else {
+      props.loginStatus(false)
+    }
+  }, []);
 
   return (
 
@@ -64,4 +65,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return ({
+    isLogin: state.login.isLogin
+  })
+}
+
+export default connect(mapStateToProps, {loginStatus})(App);
