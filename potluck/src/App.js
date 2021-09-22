@@ -16,6 +16,8 @@ const initialFormValues = {
   date: '',
   time: '',
   location: '',
+  foods: '',
+  guests: '',
 }
 
 const initialFormErrors = {
@@ -23,6 +25,8 @@ const initialFormErrors = {
   date: '',
   time: '',
   location: '',
+  foods: '',
+  guests: '',
 }
 
 
@@ -73,7 +77,9 @@ function App() {
       potluck_name: formValues.potluck_name.trim(),
       date: formValues.date.trim(),
       time: formValues.time.trim(),  
-      location: formValues.location.trim(),     
+      location: formValues.location.trim(),
+      foods: formValues.foods.trim(),     
+      guests: formValues.guests.trim(),     
     }
     postNewPotluck(newPotluck);
   }

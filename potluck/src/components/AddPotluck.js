@@ -32,6 +32,8 @@ export default function AddPotluck(props) {
                 <div>{errors.date}</div>
                 <div>{errors.time}</div>
                 <div>{errors.location}</div>
+                <div>{errors.foods}</div>
+                <div>{errors.guests}</div>
             </div>
                 <h3>Type Your Potluck Name.</h3>
                 <label>
@@ -66,6 +68,24 @@ export default function AddPotluck(props) {
                         value={values.location}
                         onChange={onChange}
                         name='location'
+                        type='text'
+                    />    
+                </label>
+                <h3>What Foods Are Needed</h3>
+                <label>
+                    <input
+                        value={values.foods}
+                        onChange={onChange}
+                        name='foods'
+                        type='text'
+                    />    
+                </label>
+                <h3>Invite Friends?</h3>
+                <label>
+                    <input
+                        value={values.guests}
+                        onChange={onChange}
+                        name='guests'
                         type='text'
                     />    
                 </label>

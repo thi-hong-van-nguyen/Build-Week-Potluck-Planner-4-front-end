@@ -54,7 +54,9 @@ export default function Signup() {
 
     return (
         <div className="signupPage">
-            <h1 className="h1">Signup Today To Create A Potluck!</h1>
+            <div>
+            <h1>Signup Today To Create A Potluck!</h1>
+            </div>
             <div className='errors'>
                 <div>{errors.username}</div>
                 <div>{errors.password}</div>

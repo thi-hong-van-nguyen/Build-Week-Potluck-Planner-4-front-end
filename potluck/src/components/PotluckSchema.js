@@ -18,6 +18,12 @@ const formSchema = yup.object().shape({
     .string()
     .trim()
     .min(4, 'What is the Location!'),
+    foods: yup
+    .string()
+    .trim(),
+    guests: yup
+    .string()
+    .trim(),
 })
 
 export default formSchema;
