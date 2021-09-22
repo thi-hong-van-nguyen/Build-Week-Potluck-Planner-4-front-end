@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import * as yup from "yup";
 // import schema from './'
-import axios from 'axios'
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
 const signUpValue = {
@@ -10,20 +10,17 @@ const signUpValue = {
     password: "",
 }
 
-const initialErrors = {
-    username: "",
-    password: "",
-}
-
-
+// const initialErrors = {
+//     username: "",
+//     password: "",
+// }
 
 export default function Signup() {
     const [credentials, setCredentials] = useState(signUpValue);
-    const [errors, setErrors] = useState(initialErrors);
+    const [errors, setErrors] = useState('');
     const { push } = useHistory()
 
     const changeHandler = (event) => {
-
         const { name, value } = event.target;
         setCredentials({
             ...credentials,
@@ -40,24 +37,29 @@ export default function Signup() {
 
     const signup = (event) => {
         event.preventDefault();
-        axios.post("", credentials)
-            .then(res => {
-                console.log(res)
-                push()
-            })
-            .catch(err => {
-                setErrors('Please try again')
-            })
+        if(credentials.username === '' || credentials.password === '') {
+            setErrors('username and password are required fields.')
+        } else {
+            axiosWithAuth()
+                .post("/api/users/register", credentials)
+                .then(res => {
+                    console.log(res)
+                    push('/')
+                })
+                .catch(err => {
+                    setErrors('Please try again')
+                })
+        }
+
     }
-
-
 
     return (
         <div className="signupPage">
             <h1 className="h1">Signup Today To Create A Potluck!</h1>
             <div className='errors'>
-                <div>{errors.username}</div>
-                <div>{errors.password}</div>
+                {/* <div>{errors.username}</div>
+                <div>{errors.password}</div> */}
+                <div style={{ color: 'red' }}>{errors}</div>
             </div>
 
             <div className="signup-container">
@@ -79,17 +81,11 @@ export default function Signup() {
                             value={credentials.password}
                             type="password"
                             onChange={changeHandler}
-
                         />
-
                     </label>
                     <button >Signup</button>
-
                 </form>
             </div>
-
-
-
         </div>
     )
 }
