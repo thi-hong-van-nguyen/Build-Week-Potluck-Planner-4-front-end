@@ -4,7 +4,7 @@ const formSchema = yup.object().shape({
     potluck_name: yup
     .string()
     .trim()
-    .required('Username is required!')
+    .required('Potluck name is required!')
     .min(3, 'Potluck name must be 3 characters long!'),
     date: yup
     .string()
@@ -18,6 +18,12 @@ const formSchema = yup.object().shape({
     .string()
     .trim()
     .min(4, 'What is the Location!'),
+    foods: yup
+    .string()
+    .trim(),
+    guests: yup
+    .string()
+    .trim(),
 })
 
 export default formSchema;

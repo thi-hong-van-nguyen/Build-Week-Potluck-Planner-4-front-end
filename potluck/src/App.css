@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
    CSS RESET
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -23,7 +23,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -43,11 +43,10 @@ table {
 	border-spacing: 0;
 }
 *{
-    box-sizing: border-box; /*when I give an item a width I want padding and margin to be applied within that width not in addition to it*/
+    box-sizing: border-box;
     padding:0;
     margin:0;
     max-width:100%;
-    /* border:1px solid grey; */
 }
 
 /*
@@ -89,6 +88,16 @@ Potluck styles
   align-items: center;
   box-sizing: border-box;
   color: #4f5c65;
+  font-size: 1.4em;
+}
+h1 {
+  margin: .67em 0;
+  margin-top: 0px;
+  margin-bottom: 1.6em;
+  font-size: 2.5em;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #353e44;
 }
 .button {
   padding: 19px 36px;
@@ -105,7 +114,23 @@ Potluck styles
   text-align: center;
 }
 
+.button:hover {
+  opacity: 0.75;
+}
 
+.add-button{
+  padding: 19px 36px;
+  font-size: 1em;
+  line-height: 1.5em;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 135, 238, 0.7);
+  border-radius: 5px;
+  background-color: rgba(0, 135, 238, 0.7);
+  transition: opacity 200ms ease, color 200ms ease, border-color 200ms ease, background-color 200ms ease;
+  font-weight: 500;
+  text-align: center;
+}
 
 
 /* SignUp styles */
@@ -157,3 +182,44 @@ width:100%
   color:#4f5c65;
   transition:0.6s;
 }
+
+input {
+  width: 100%;
+  margin: 5px 0 0;
+  display: block;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.3s;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+  background-color: #fff;
+}
+img {
+  object-fit: cover;
+  width: 33%;
+  max-width: 500px;
+  flex: 0 auto;
+  border: 0;
+}
+/*
+Home Page
+*/
+.Home {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: #4f5c65;
+  font-size: 1.4em;
+  background-image: url(https://images.unsplash.com/photo-1597774681009-f8679cf72348?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI0OXx4alBSNGhsa0JHQXx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: #f7fafc;
+}
+.Home h1 {
+  color: #f7fafc;
+}
+

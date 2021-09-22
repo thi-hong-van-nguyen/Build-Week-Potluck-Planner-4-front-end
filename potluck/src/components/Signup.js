@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import * as yup from "yup";
 // import schema from './'
-import axios from 'axios'
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 
 const signUpValue = {
@@ -10,61 +11,48 @@ const signUpValue = {
     password: "",
 }
 
-const initialErrors = {
-    username: "",
-    password: "",
-}
-
-
+// const initialErrors = {
+//     username: "",
+//     password: "",
+// }
 
 export default function Signup() {
     const [credentials, setCredentials] = useState(signUpValue);
-    const [errors, setErrors] = useState(initialErrors);
+    const [errors, setErrors] = useState('');
     const { push } = useHistory()
 
     const changeHandler = (event) => {
-
         const { name, value } = event.target;
         setCredentials({
             ...credentials,
             [name]: value
         })
-    }
-
-    // const validate = (name, value) => {
-    //     yup.reach(schema, name)
-    //         .validate(value)
-    //         .then(() => setErrors({ ...errors, [name]: "" }))
-    //         .catch(err => setErrors({ ...errors, [name]: err.errors[0] }))
-    // }
+    };
 
     const signup = (event) => {
         event.preventDefault();
-        axios.post("", credentials)
-            .then(res => {
-                console.log(res)
-                setCredentials(signUpValue);
-                push('/')
-            })
-            .catch(err => {
-                setErrors(err)
-                setCredentials(signUpValue);
-            })
-    }
-
-
+        if(credentials.username === '' || credentials.password === '') {
+            setErrors('username and password are required fields.')
+        } else {
+            axios.post("https://potluck-planner-3.herokuapp.com/api/users/register", credentials)
+                .then(res => {
+                    console.log(res)
+                    push('/login')
+                })
+                .catch(err => {
+                    setErrors('Please try again')
+                })
+        }
+    };
 
     return (
         <div className="signupPage">
             <div className="img">
-                <h1 className="h1">Signup Today To Create A Potluck!</h1>
-                <div className='errors'>
-                    <div>{errors.username}</div>
-                    <div>{errors.password}</div>
-                </div>
-
-
-
+            <h1 className="h1">Signup Today To Create A Potluck!</h1>
+            </div>
+            <div className='errors'>
+                <div style={{ color: 'red' }}>{errors}</div>
+            </div>
                 <form className='signup-form' onSubmit={signup}>
                     <h2 className='signup'>Username:</h2>
                     <label >
@@ -86,13 +74,12 @@ export default function Signup() {
                             value={credentials.password}
                             type="password"
                             onChange={changeHandler}
-
                         />
-
                     </label>
                     <button className="signup-button">Signup</button>
 
                 </form>
+
 
             </div>
         </div>
