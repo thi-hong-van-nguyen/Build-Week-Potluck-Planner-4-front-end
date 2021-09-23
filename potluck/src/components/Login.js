@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { Form, Label, Input, Button } from './style/loginStyle';
+import { Form, Label, Input, Button } from '../styling/loginStyle';
 import { loginStatus } from '../actions';
 
 const initialFormState = {

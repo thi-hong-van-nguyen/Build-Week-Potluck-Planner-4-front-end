@@ -10,8 +10,9 @@ import Logout from './components/Logout';
 import AddPotluck from './components/AddPotluck';
 import Potlucks from './components/Potlucks';
 import { loginStatus } from './actions';
+import PrivateRoute from './components/PrivateRoute';
 
-import './App.css';
+import '../src/styling/App.css';
 
 function App(props) {
   useEffect(() => {
@@ -21,8 +22,6 @@ function App(props) {
       props.loginStatus(false);
     }
   }, []);
-
-
 
   return (
     <div className="App">
@@ -42,12 +41,8 @@ function App(props) {
           <Signup />
         </Route>
 
-        {/* PrivateRoute here */}
-        <Route path='/add'>
-          <AddPotluck />
-        </Route>
+        <PrivateRoute path='/add' component={AddPotluck} />
 
-        {/* PrivateRoute here */}
         <Route path='/potlucks'>
           <Potlucks />
         </Route>
