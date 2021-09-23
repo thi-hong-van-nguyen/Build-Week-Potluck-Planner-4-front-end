@@ -47,6 +47,9 @@ export const StyledButton = styled.button`
    outline: none;
    background-color: #4dd0e1;
    background-image: linear-gradient(to right, #4dd0e1, #1ee7e2);
+   &:disabled {
+    background-image: linear-gradient(to right, red, black);
+   }
    color: #fff;
    cursor: pointer;
    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);

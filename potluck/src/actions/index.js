@@ -9,6 +9,23 @@ const fetchStart = () => ({ type: FETCH_START });
 const fetchSuccess = data => ({ type: FETCH_SUCCESS, payload: data });
 const fetchFailure = error => ({ type: FETCH_FAILURE, payload: error });
 
+export const ADD_POTLUCK = "ADD_POTLUCK";
+export const ADD_GUESTS = "ADD_GUESTS";
+export const ADD_FOODS = "ADD_FOODS";
+
+export const addPotluck = potluck => ({ type: ADD_POTLUCK, payload: potluck })
+export const addGuests = guests => ({ type: ADD_GUESTS, payload: guests })
+export const addFoods = foods => ({ type: ADD_POTLUCK, payload: foods })
+
+export const postPotluck = finalPotluck => dispatch => {
+    axiosWithAuth().post("/api/potlucks", finalPotluck)
+        .then(potlcuk => {
+            // what to do here?
+        }).catch(err => {
+            // what to do here?
+        })
+}
+
 export const getPotlucks = () => dispatch => {
     dispatch(fetchStart());
     axiosWithAuth()

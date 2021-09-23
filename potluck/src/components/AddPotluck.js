@@ -20,15 +20,13 @@ export default function AddPotluck() {
             date: state.date.trim(),
             time: state.time.trim(),
             location: state.location.trim(),
-            foods: state.foods.trim(),
-            guests: state.guests.trim(),
         };
 
         axiosWithAuth()
             .post('/api/potlucks/', newPotluck)
             .then(res => {
                 console.log(res);
-                push('/potlucks');
+                push('/add_guests');
             })
             .catch(err => console.log(err))
     }
