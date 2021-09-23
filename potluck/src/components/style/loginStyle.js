@@ -1,7 +1,7 @@
 
 import styled from "styled-components"
 
-export const Form = styled.form`
+export const StyledForm = styled.form`
   display: flex;
    flex-direction: column;
    width: 90%;
@@ -10,7 +10,7 @@ export const Form = styled.form`
 
  `;
 
-export const Label = styled.label`
+export const StyledLabel = styled.label`
 
  display: flex;
    flex-direction: column;
@@ -21,7 +21,7 @@ export const Label = styled.label`
 
  `;
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
  width: 100%;
    margin: 5px 0 0;
    display: block;
@@ -35,7 +35,7 @@ export const Input = styled.input`
 
    `;
 
-export const Button = styled.button`
+export const StyledButton = styled.button`
  width: 150px;
    display: inline-block;
    padding: 8px 11px;

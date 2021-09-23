@@ -1,73 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { Form, Label, Input, Button } from './style/loginStyle';
 import { loginStatus } from '../actions';
+import Form from './Form';
+import UserSchema from '../validations/UserSchema';
 
-const initialFormState = {
+const initialState = {
     username: "",
     password: "",
 };
 
 const Login = (props) => {
     const { push } = useHistory();
-    const [formState, setFormState] = useState(initialFormState);
-    const [error, setError] = useState('');
 
-    const inputChange = e => {
-        const { name, value } = e.target;
-        setFormState({ ...formState, [name]: value });
 
-    };
-
-    const handleLogin = (e) => {
-        e.preventDefault();
+    const handleLogin = formState => {
         axiosWithAuth()
-            .post('/api/users/login', formState)// we neeed to enter actual ural here form back end
+            .post('/api/users/login', formState)
             .then(res => {
-                localStorage.setItem('token',/** whatever is in the response */)
+                localStorage.setItem('token', JSON.stringify(res.data.token))
                 localStorage.setItem('username', formState.username);
                 props.loginStatus(true);
                 push('/')
 
             })
             .catch(err => {
-                setError('username and/or password is invalid.')
+                console.log(err)
             })
     };
 
     return (
-        <>
-            <Form onSubmit={handleLogin} className='login-form' >
-                <Label className='login-label' htmlFor="username">
-                    Name:
-                    <Input
-                        className="login-input"
-                        id="username"
-                        type="text"
-                        name="username"
-                        onChange={inputChange}
-                        value={formState.username}
-                    />
-                </Label>
-                <Label className='login-label' htmlFor="password">
-                    Password:
-                    <Input
-                        className="login-input"
-                        id="password"
-                        type="text"
-                        name="password"
-                        onChange={inputChange}
-                        value={formState.password}
-                    />
-                </Label>
-                <Button className={'login-button'}>Login</Button>
-            </Form>
-            {error ? <p style={{ color: 'red' }}>{error}</p> : null}
-
-
-        </>
+        <Form 
+            initialState={initialState}
+            submit={handleLogin}
+            schema={UserSchema}
+        />
     )
 }
 export default connect(null, {loginStatus})(Login);
