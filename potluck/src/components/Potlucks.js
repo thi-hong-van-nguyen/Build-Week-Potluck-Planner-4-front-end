@@ -12,9 +12,11 @@ function Potlucks(props) {
     return (
         <div>
             <h1>Potlucks list</h1>
-            {props.potlucks.map(item => {
-                return (<Potluck potluck={item} key={item.id} />)
-            })}
+            <div style={{display: 'flex'}}>
+                {props.potlucks.map(item => {
+                    return (<Potluck potluck={item} key={item.id} />)
+                })}
+            </div>
         </div>
     )
 };
