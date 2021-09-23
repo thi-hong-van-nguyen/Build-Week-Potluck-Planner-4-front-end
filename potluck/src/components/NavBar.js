@@ -14,8 +14,8 @@ function NavBar(props) {
                     {
                         isLogin ? <>
                             <li style={{color: '#ae2012', fontSize: '1rem'}}>
-                                Welcome 
-                                <span style={{textDecoration: 'underline'}}>
+                                Welcome
+                                <span style={{textDecoration: 'underline', padding: '0 0 0 5px'}}>
                                     {username}
                                 </span>
                             </li>

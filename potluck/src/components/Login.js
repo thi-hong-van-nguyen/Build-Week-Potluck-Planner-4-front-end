@@ -30,11 +30,15 @@ const Login = (props) => {
     };
 
     return (
-        <Form 
-            initialState={initialState}
-            submit={handleLogin}
-            schema={UserSchema}
-        />
+        <div>
+            <h1 style={{textAlign: 'center', marginTop: '30px'}}>LOG IN</h1>
+            <Form
+                initialState={initialState}
+                submit={handleLogin}
+                schema={UserSchema}
+            />
+        </div>
+
     )
 }
-export default connect(null, {loginStatus})(Login);
+export default connect(null, { loginStatus })(Login);
