@@ -8,6 +8,8 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import AddPotluck from './components/AddPotluck';
+import AddGuests from './components/AddGuests';
+import AddFoods from './components/AddFoods';
 import Potlucks from './components/Potlucks';
 import { loginStatus } from './actions';
 import PrivateRoute from './components/PrivateRoute';
@@ -41,7 +43,11 @@ function App(props) {
           <Signup />
         </Route>
 
-        <PrivateRoute path='/add' component={AddPotluck} />
+        <PrivateRoute path='/add' component={AddPotluck}/>
+
+        <PrivateRoute path='/add_guests' component={AddGuests}/>
+
+        <PrivateRoute path='/add_foods' component={AddFoods}/>
 
         <Route path='/potlucks'>
           <Potlucks />
