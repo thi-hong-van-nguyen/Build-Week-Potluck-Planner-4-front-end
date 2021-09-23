@@ -19,7 +19,7 @@ export const addFoods = foods => ({ type: ADD_POTLUCK, payload: foods })
 
 export const postPotluck = finalPotluck => dispatch => {
     axiosWithAuth().post("/api/potlucks", finalPotluck)
-        .then(potlcuk => {
+        .then(potluck => {
             // what to do here?
         }).catch(err => {
             // what to do here?
