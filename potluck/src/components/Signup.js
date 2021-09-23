@@ -9,7 +9,6 @@ const signUpValue = {
     password: "",
 }
 
-
 export default function Signup() {
     const { push } = useHistory()
 

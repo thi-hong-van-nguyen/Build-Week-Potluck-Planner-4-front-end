@@ -12,13 +12,13 @@ const fetchFailure = error => ({ type: FETCH_FAILURE, payload: error });
 export const getPotlucks = () => dispatch => {
     dispatch(fetchStart());
     axiosWithAuth()
-        .get('/api/potlucks') //waiting for back-end
+        .get('/api/potlucks')
         .then(res => {
-            // dispatch(fetchSuccess(res.data)) //wait for back-end
+            // dispatch(fetchSuccess(res.data))
             console.log(res)
         })
         .catch(err => {
-            // dispatch(fetchFailure("Cannot fetch potlucks"))
+            dispatch(fetchFailure("Cannot fetch potlucks"))
             console.log(err)
         })
 };

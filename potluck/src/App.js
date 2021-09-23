@@ -10,6 +10,7 @@ import Logout from './components/Logout';
 import AddPotluck from './components/AddPotluck';
 import Potlucks from './components/Potlucks';
 import { loginStatus } from './actions';
+import PrivateRoute from './components/PrivateRoute';
 
 import './styles/App.css';
 
@@ -18,7 +19,7 @@ function App(props) {
     if(localStorage.getItem('token')) {
       props.loginStatus(true)
     } else {
-      props.loginStatus(false)
+      props.loginStatus(false);
     }
   }, []);
 
@@ -40,12 +41,8 @@ function App(props) {
           <Signup />
         </Route>
 
-        {/* PrivateRoute here */}
-        <Route path='/add'>
-          <AddPotluck />
-        </Route>
+        <PrivateRoute path='/add' component={AddPotluck} />
 
-        {/* PrivateRoute here */}
         <Route path='/potlucks'>
           <Potlucks />
         </Route>

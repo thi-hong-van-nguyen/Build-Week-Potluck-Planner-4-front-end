@@ -19,11 +19,10 @@ const Login = (props) => {
         axiosWithAuth()
             .post('/api/users/login', formState)
             .then(res => {
-                localStorage.setItem('token', JSON.stringify(res.data.token))
+                localStorage.setItem('token', res.data.token);
                 localStorage.setItem('username', formState.username);
                 props.loginStatus(true);
                 push('/')
-
             })
             .catch(err => {
                 console.log(err)
