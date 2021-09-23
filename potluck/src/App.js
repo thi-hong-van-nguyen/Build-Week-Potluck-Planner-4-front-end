@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,7 +11,7 @@ import AddPotluck from './components/AddPotluck';
 import Potlucks from './components/Potlucks';
 import { loginStatus } from './actions';
 
-import './App.css';
+import './styles/App.css';
 
 function App(props) {
   useEffect(() => {
