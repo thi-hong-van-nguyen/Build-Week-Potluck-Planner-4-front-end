@@ -13,7 +13,7 @@ export default function Signup() {
     const { push } = useHistory()
 
     const signup = credentials => {
-        axios.post("https://potluck-planner-3.herokuapp.com//api/users/register", credentials)
+        axios.post("https://potluck-planner-3.herokuapp.com/api/users/register", credentials)
             .then(res => {
                 console.log(res)
                 push('/login')
