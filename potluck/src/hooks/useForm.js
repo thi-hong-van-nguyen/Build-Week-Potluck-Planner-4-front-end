@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import * as yup from 'yup';
 
 
-const useForm = (initialState, initialErrors, initialDisabled, schema) => {
-    const [ state, setState ] = useState(initialState);
-    const [ errors, setErrors ] = useState(initialErrors);
-    const [ disabled, setDisabled ] = useState(initialDisabled);
+const useForm = (initialState, schema) => {
+    const [state, setState] = useState(initialState);
+    const [errors, setErrors] = useState(initialState);
+    const [disabled, setDisabled] = useState(true);
 
     const validate = (name, value) => {
         yup.reach(schema, name)

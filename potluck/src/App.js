@@ -12,7 +12,7 @@ import Potlucks from './components/Potlucks';
 import { loginStatus } from './actions';
 import PrivateRoute from './components/PrivateRoute';
 
-import '../src/styling/App.css';
+import './styles/App.css';
 
 function App(props) {
   useEffect(() => {

@@ -9,7 +9,7 @@ import logger from 'redux-logger';
 import App from './App';
 import reducer from './reducers';
 
-import '../src/styling/index.css';
+import './styles/index.css';
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
