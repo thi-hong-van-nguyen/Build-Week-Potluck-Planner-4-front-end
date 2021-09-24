@@ -1,8 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import schema from '../validations/PotluckSchema';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
 import Form from "./Form"
+import { connect } from "react-redux"
+import { addPotluck } from '../actions';
+
 
 const initialState = {
     potluck_name: '',
@@ -11,7 +13,8 @@ const initialState = {
     location: '',
 };
 
-export default function AddPotluck() {
+function AddPotluck(props) {
+    const { addPotluck } = props
     const { push } = useHistory();
 
     const submit = (state) => {
@@ -21,14 +24,8 @@ export default function AddPotluck() {
             time: state.time.trim(),
             location: state.location.trim(),
         };
-
-        axiosWithAuth()
-            .post('/api/potlucks/', newPotluck)
-            .then(res => {
-                console.log(res);
-                push('/add_guests');
-            })
-            .catch(err => console.log(err))
+        addPotluck(newPotluck)
+        push("/add_guests")
     }
 
     return (
@@ -46,3 +43,5 @@ export default function AddPotluck() {
         </div>
     )
 }
+
+export default connect(null, { addPotluck })(AddPotluck)

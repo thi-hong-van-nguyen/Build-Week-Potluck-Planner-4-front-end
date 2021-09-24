@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import axios from 'axios'
 import Form from './Form'
 import GuestSchema from '../validations/GuestSchema'
 import { Link, useHistory } from 'react-router-dom'
@@ -17,7 +17,7 @@ function AddGuests(props) {
     const { goBack } = useHistory()
     
     const submit = ({ guest }) => {
-        axiosWithAuth().get(`/api/users/${guest}`)
+        axios.get(`https://potluck-planner-3.herokuapp.com/api/users/${guest}`)
             .then(res => {
                 setSelectedGuests(res.data)
                 if (selectedGuests.some(g => g === guest)) {
