@@ -13,7 +13,7 @@ export default function Signup() {
     const { push } = useHistory()
 
     const signup = credentials => {
-        axios.post("https://potluck-planner-3.herokuapp.com//api/users/register", credentials)
+        axios.post("https://potluck-planner-3.herokuapp.com/api/users/register", credentials)
             .then(res => {
                 console.log(res)
                 push('/login')
@@ -26,7 +26,7 @@ export default function Signup() {
     return (
         <div className="signupPage">
             <div>
-                <h1>
+                <h1 style={{textAlign: 'center'}}>
                     Signup Today To Create A Potluck!
                 </h1>
             </div>

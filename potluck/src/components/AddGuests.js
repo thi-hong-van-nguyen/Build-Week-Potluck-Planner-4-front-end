@@ -15,7 +15,7 @@ function AddGuests(props) {
     const [guests, setGuests] = useState([])
     const [err, setErr] = useState("")
     const { goBack } = useHistory()
-    
+
     const submit = ({ guest }) => {
         axios.get(`https://potluck-planner-3.herokuapp.com/api/users/${guest}`)
             .then(res => {
@@ -37,11 +37,12 @@ function AddGuests(props) {
         <div>
             <ul>
                 {
-                    guests.map(guest => 
-                        <li>{guest}</li>    
+                    guests.map(guest =>
+                        <li>{guest}</li>
                     )
                 }
             </ul>
+
             <Form
                 initialState={initialState}
                 submit={submit}
@@ -50,6 +51,7 @@ function AddGuests(props) {
             {err}
             <Link 
                 onClick={() => addGuests(guests)} 
+
                 to="/add_foods"
             >
                 Next
