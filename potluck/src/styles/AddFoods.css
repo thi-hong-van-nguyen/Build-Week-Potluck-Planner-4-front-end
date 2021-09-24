@@ -1,0 +1,66 @@
+.add-foods-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.foods-list {
+    width: 100%;
+    padding: 3%;
+}
+
+.foods-list h1 {
+    margin: 0;
+    padding: 0;
+    color: rgba(163, 22, 11, 1);
+}
+
+.foods-list ul {
+    margin-left: 30px;
+    padding: 0;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+
+}
+
+
+.foods-list ul li {
+    line-height: 40px;
+}
+/*
+.next-back a {
+    padding-top: 10px;
+}
+
+.next, .go-back {
+    border: 1px solid rgba(163, 22, 11, 1);
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 0 0 1%;
+    font-size: 1.2rem;
+}
+
+.go-back {
+    cursor: pointer;
+} */
+
+.submit-potluck {
+    cursor: pointer;
+    width: 150px;
+    height: 80px;
+    border: 1px solid rgba(163, 22, 11, 1);
+    background-color: rgba(163, 22, 11, 1);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.submit-potluck:hover {
+    opacity: 0.9;
+}

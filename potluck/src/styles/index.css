@@ -2,6 +2,8 @@
 @import 'Potlucks.css';
 @import 'Potluck.css';
 @import 'PotluckDetails';
+@import "AddGuests.css";
+@import "AddFoods.css";
 
 body {
   margin: 0;

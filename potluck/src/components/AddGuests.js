@@ -20,7 +20,7 @@ function AddGuests(props) {
         axios.get(`https://potluck-planner-3.herokuapp.com/api/users/${guest}`)
             .then(res => {
                 console.log(res.data)
-                if (res.data.some(g => 
+                if (res.data.some(g =>
                     g === guest.trim()
                 )) {
                     setGuests([...guests, guest.trim()])
@@ -34,29 +34,33 @@ function AddGuests(props) {
     }
 
     return (
-        <div>
-            <ul>
-                {
-                    guests.map(guest =>
-                        <li>{guest}</li>
-                    )
-                }
-            </ul>
-
+        <div className='guests-list-wrapper'>
+            <div className='guests-list'>
+                <h1>Guests List: </h1>
+                <ul>
+                    {
+                        guests.map(guest =>
+                            <li>{guest}</li>
+                        )
+                    }
+                </ul>
+            </div>
             <Form
                 initialState={initialState}
                 submit={submit}
                 schema={GuestSchema}
             />
             {err}
-            <Link 
-                onClick={() => addGuests(guests)} 
-
-                to="/add_foods"
-            >
-                Next
-            </Link>
-            <button onClick={goBack}>Go Back</button>
+            <div className='next-back'>
+                <Link
+                    onClick={() => addGuests(guests)}
+                    className='next'
+                    to="/add_foods"
+                >
+                    Next
+                </Link>
+                <button className='go-back' onClick={goBack}>Go Back</button>
+            </div>
         </div>
     )
 }
