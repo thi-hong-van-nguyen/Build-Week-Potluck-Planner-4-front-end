@@ -1,6 +1,6 @@
 .potlucks-container {
     max-width: 1200px;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .potlucks-container h1 {
@@ -13,7 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
