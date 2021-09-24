@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import axios from 'axios'
 import Form from './Form'
 import GuestSchema from '../validations/GuestSchema'
 import { Link, useHistory } from 'react-router-dom'
@@ -13,15 +13,20 @@ const initialState = {
 function AddGuests(props) {
     const { addGuests } = props
     const [guests, setGuests] = useState([])
-    const [selectedGuests, setSelectedGuests] = useState([])
+    const [err, setErr] = useState("")
     const { goBack } = useHistory()
 
     const submit = ({ guest }) => {
-        axiosWithAuth().get(`/api/users/${guest}`)
+        axios.get(`https://potluck-planner-3.herokuapp.com/api/users/${guest}`)
             .then(res => {
-                setSelectedGuests(res.data)
-                if (selectedGuests.some(g => g === guest)) {
-                    setGuests([...guests, guest])
+                console.log(res.data)
+                if (res.data.some(g => 
+                    g === guest.trim()
+                )) {
+                    setGuests([...guests, guest.trim()])
+                    setErr("")
+                } else {
+                    setErr("username does not exist")
                 }
             }).catch(err => {
                 console.log(err)
@@ -37,25 +42,21 @@ function AddGuests(props) {
                     )
                 }
             </ul>
-            <ol>
-                {
-                    selectedGuests.map(guest =>
-                        <li>{guest}</li>
-                    )
-                }
-            </ol>
+
             <Form
                 initialState={initialState}
                 submit={submit}
                 schema={GuestSchema}
             />
-            <Link
-                onClick={() => addGuests(guests)}
+            {err}
+            <Link 
+                onClick={() => addGuests(guests)} 
+
                 to="/add_foods"
             >
                 Next
             </Link>
-            <Link onClick={goBack}>Go Back</Link>
+            <button onClick={goBack}>Go Back</button>
         </div>
     )
 }
