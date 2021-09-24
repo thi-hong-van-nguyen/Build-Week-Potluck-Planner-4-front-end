@@ -26,7 +26,7 @@ export default function Signup() {
     return (
         <div className="signupPage">
             <div>
-                <h1>
+                <h1 style={{textAlign: 'center'}}>
                     Signup Today To Create A Potluck!
                 </h1>
             </div>

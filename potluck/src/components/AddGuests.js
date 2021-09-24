@@ -15,7 +15,7 @@ function AddGuests(props) {
     const [guests, setGuests] = useState([])
     const [selectedGuests, setSelectedGuests] = useState([])
     const { goBack } = useHistory()
-    
+
     const submit = ({ guest }) => {
         axiosWithAuth().get(`/api/users/${guest}`)
             .then(res => {
@@ -32,14 +32,14 @@ function AddGuests(props) {
         <div>
             <ul>
                 {
-                    guests.map(guest => 
-                        <li>{guest}</li>    
+                    guests.map(guest =>
+                        <li>{guest}</li>
                     )
                 }
             </ul>
             <ol>
                 {
-                    selectedGuests.map(guest => 
+                    selectedGuests.map(guest =>
                         <li>{guest}</li>
                     )
                 }
@@ -49,8 +49,8 @@ function AddGuests(props) {
                 submit={submit}
                 schema={GuestSchema}
             />
-            <Link 
-                onClick={() => addGuests(guests)} 
+            <Link
+                onClick={() => addGuests(guests)}
                 to="/add_foods"
             >
                 Next

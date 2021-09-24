@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 function NavBar(props) {
     const { isLogin } = props
-    const username = localStorage.getItem('username')
+    const username = localStorage.getItem('username');
+    const linksWithLogin = ['']
     return (
         <div className='navbar-container'>
             <div></div>
@@ -14,8 +15,8 @@ function NavBar(props) {
                     {
                         isLogin ? <>
                             <li style={{color: '#ae2012', fontSize: '1rem'}}>
-                                Welcome 
-                                <span style={{textDecoration: 'underline'}}>
+                                Welcome
+                                <span style={{textDecoration: 'underline', padding: '0 0 0 5px'}}>
                                     {username}
                                 </span>
                             </li>
