@@ -21,23 +21,26 @@ export default function PotluckDetails() {
     const { potluck_name, date, location, time, foods, guests } = potluck
 
     return (
-        <div>
-            <div>Potluck name: {potluck_name}</div>
-            <div>Date: {date}</div>
-            <div>Time: {time}</div>
-            <div>Location: {location}</div>
-            <div>Foods: </div>
-            <ul>
-                {
-                    foods?.map(f => <li>{f}</li>)
-                }
-            </ul>
-            <div>Guests: </div>
-            <ul>
-                {
-                    guests?.map(g => <Guest guest={g}/>)
-                }
-            </ul>
+        <div className='potluck-details'>
+            <div className='details-container'>
+                <h1>{potluck_name}</h1>
+                <div>Date: {date.slice(0, 10)}</div>
+                <div>Time: {time}</div>
+                <div>Location: {location}</div>
+                <div>Foods: </div>
+                <ul>
+                    {
+                        foods?.map(f => <li>{f}</li>)
+                    }
+                </ul>
+                <div>Guests: </div>
+                <ul>
+                    {
+                        guests?.map(g => <Guest guest={g} />)
+                    }
+                </ul>
+            </div>
+
         </div>
     )
 }

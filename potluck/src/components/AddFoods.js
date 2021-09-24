@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Form from './Form'
 import foodSchema from "../validations/FoodSchema"
 import { connect } from 'react-redux'
@@ -11,31 +12,37 @@ const initialState = {
 function AddGuests(props) {
     const { potluck, postPotluck, addFoods } = props
     const [foods, setFoods] = useState([])
+    const { push } = useHistory()
 
     const submit = ({ food }) => {
         setFoods([...foods, food])
     }
-    
+
     const finalSubmit = () => {
         addFoods(foods)
         postPotluck(potluck)
+        push('/potlucks')
     }
 
     return (
-        <div>
-            <ul>
-                {
-                    foods.map(guest => 
-                        <li>{guest}</li>    
-                    )
-                }
-            </ul>
+        <div className='add-foods-wrapper'>
+            <div className='foods-list'>
+                <h1>Foods List:</h1>
+                <ul>
+                    {
+                        foods.map(guest =>
+                            <li>{guest}</li>
+                        )
+                    }
+                </ul>
+            </div>
+
             <Form
                 initialState={initialState}
                 submit={submit}
                 schema={foodSchema}
             />
-            <button onClick={finalSubmit}>
+            <button className='submit-potluck' onClick={finalSubmit}>
                 Submit All Info
             </button>
         </div>

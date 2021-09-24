@@ -10,9 +10,9 @@ function Potlucks(props) {
     }, [])
 
     return (
-        <div>
+        <div className='potlucks-container'>
             <h1>Potlucks list</h1>
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex'}} className='potluck-cards'>
                 {props.potlucks.map(item => {
                     return (<Potluck potluck={item} key={item.id} />)
                 })}
