@@ -1,0 +1,19 @@
+.potlucks-container {
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+.potlucks-container h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(163, 22, 11, 1)
+}
+
+.potluck-cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+

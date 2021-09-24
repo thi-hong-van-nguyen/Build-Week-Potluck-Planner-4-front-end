@@ -30,8 +30,8 @@ const Login = (props) => {
     };
 
     return (
-        <div>
-            <h1 style={{textAlign: 'center', marginTop: '30px'}}>LOG IN</h1>
+        <div className='login'>
+            <h1 style={{textAlign: 'center', marginTop: '30px', color: 'rgba(163, 22, 11, 1)'}}>LOG IN</h1>
             <Form
                 initialState={initialState}
                 submit={handleLogin}
