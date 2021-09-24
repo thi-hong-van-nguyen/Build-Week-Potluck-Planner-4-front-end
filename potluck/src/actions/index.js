@@ -15,14 +15,14 @@ export const ADD_FOODS = "ADD_FOODS";
 
 export const addPotluck = potluck => ({ type: ADD_POTLUCK, payload: potluck })
 export const addGuests = guests => ({ type: ADD_GUESTS, payload: guests })
-export const addFoods = foods => ({ type: ADD_POTLUCK, payload: foods })
+export const addFoods = foods => ({ type: ADD_FOODS, payload: foods })
 
 export const postPotluck = finalPotluck => dispatch => {
+    dispatch(fetchStart())
     axiosWithAuth().post("/api/potlucks", finalPotluck)
         .then(potluck => {
-            // what to do here?
+            console.log(potluck)
         }).catch(err => {
-            // what to do here?
         })
 }
 
