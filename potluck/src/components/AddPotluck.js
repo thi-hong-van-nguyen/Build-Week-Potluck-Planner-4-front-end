@@ -34,12 +34,14 @@ function AddPotluck(props) {
                 <h1>Create a Potluck!</h1>
                 <p>This is the perfect place to create your potluck event!</p>
             </div>
-            <Form
-                initialState={initialState}
-                submit={submit}
-                schema={schema}
-            />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vL4PW-dCxSrzSn0FZJtRurqf6QH8Gh2jag&usqp=CAU" alt="people around table eating" />
+            <div>
+                <Form
+                    initialState={initialState}
+                    submit={submit}
+                    schema={schema}
+                />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5vL4PW-dCxSrzSn0FZJtRurqf6QH8Gh2jag&usqp=CAU" alt="people around table eating" />
+            </div>
         </div>
     )
 }

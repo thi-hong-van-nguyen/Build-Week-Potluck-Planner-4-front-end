@@ -1,5 +1,7 @@
 .create-potluck {
-    position: relative
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .create-potluck div h1, .create-potluck div p {
@@ -17,10 +19,15 @@
     font-weight: bold;
 }
 
+.create-potluck div:nth-child(2) {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 .create-potluck img {
     width: 500px;
     height: 500px;
-    position: absolute;
-    top: 15%;
-    left: 6%
+    margin: 0 3rem 0 0;
 }

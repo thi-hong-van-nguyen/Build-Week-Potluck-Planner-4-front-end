@@ -5,10 +5,9 @@ import { connect } from 'react-redux';
 function NavBar(props) {
     const { isLogin } = props
     const username = localStorage.getItem('username');
-    const linksWithLogin = ['']
+
     return (
         <div className='navbar-container'>
-            <div></div>
             <div>
                 <ul className='nav-links'>
                     <li><Link to='/'>Home</Link></li>
