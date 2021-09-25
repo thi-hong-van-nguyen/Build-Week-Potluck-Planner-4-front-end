@@ -32,19 +32,19 @@ function App(props) {
 
       <Switch>
 
-        <Route path='/login'>
-          <Login />
+        <Route path='/Log_in'>
+          <Login/>
         </Route>
 
-        <Route path='/logout'>
-          <Logout />
+        <Route path='/Log_out'>
+          <Logout/>
         </Route>
 
-        <Route path='/signup'>
-          <Signup />
+        <Route path='/Sign_up'>
+          <Signup/>
         </Route>
 
-        <PrivateRoute path='/add' component={AddPotluck}/>
+        <PrivateRoute path='/Create_Potluck' component={AddPotluck}/>
 
         <PrivateRoute path='/add_guests' component={AddGuests}/>
 
@@ -52,18 +52,15 @@ function App(props) {
 
         <PrivateRoute path='/potlucks/:potluck_id' component={PotluckDetails}/>
 
-        <Route path='/potlucks'>
-          <Potlucks />
+        <Route path='/View_Potlucks'>
+          <Potlucks/>
         </Route>
 
         <Route path='/'>
-          <Home />
+          <Home/>
         </Route>
 
       </Switch>
-
-      {/* Footer??? */}
-
     </div>
   );
 }

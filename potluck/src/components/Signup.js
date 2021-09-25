@@ -16,7 +16,7 @@ export default function Signup() {
         axios.post("https://potluck-planner-3.herokuapp.com/api/users/register", credentials)
             .then(res => {
                 console.log(res)
-                push('/login')
+                push('/Login_in')
             })
             .catch(err => {
                 console.log(err)

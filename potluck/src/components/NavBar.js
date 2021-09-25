@@ -1,38 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import Routes from './Routes';
 
-function NavBar(props) {
-    const { isLogin } = props
-    const username = localStorage.getItem('username');
+export default function NavBar() {
+    // const username = localStorage.getItem('username');
 
     return (
-        <div className='navbar-container'>
-            <div>
+        <header className='navbar-container'>
+            <nav>
                 <ul className='nav-links'>
-                    <li><Link to='/'>Home</Link></li>
-                    {
-                        isLogin ? <>
-                            <li style={{color: '#ae2012', fontSize: '1rem'}}>
-                                Welcome
-                                <span style={{textDecoration: 'underline', padding: '0 0 0 5px'}}>
-                                    {username}
-                                </span>
-                            </li>
-                            <li><Link to='/logout'>Log out</Link></li>
-                            <li><Link to='/potlucks'>View Potlucks</Link></li>
-                            <li><Link to='/add'>Create Potluck</Link></li>
-                        </> : <>
-                            <li><Link to='/signup'>Sign up</Link></li>
-                            <li><Link to='/login'>Log in</Link></li>
-                        </>
-                    }
+                    <li>
+                        <Link to='/'>
+                            Home
+                        </Link>
+                    </li>
+                    <Routes/>
                 </ul>
-            </div>
-        </div>
+            </nav>
+        </header>
     )
 }
-
-const mapStateToProps = state => ({isLogin: state.login.isLogin});
-
-export default connect(mapStateToProps)(NavBar)
