@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import UserSchema from '../validations/UserSchema';
-import Form from "./Form"
+import Form from "./helpers/Form"
 
 const signUpValue = {
     username: "",

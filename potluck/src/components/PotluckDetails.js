@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import { axiosWithAuth } from "../utils/axiosWithAuth"
-import Guest from './Guest'
+import Guest from './helpers/Guest'
 
 export default function PotluckDetails() {
     const { potluck_id } = useParams()

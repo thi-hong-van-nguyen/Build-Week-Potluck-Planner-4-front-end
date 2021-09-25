@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledInput, StyledLabel } from '../styles/loginStyle'
+import { StyledInput, StyledLabel } from '../../styles/loginStyle'
 
 export default function Input(props) {
     const { name, formState, handleChange } = props

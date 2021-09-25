@@ -13,7 +13,7 @@ import AddFoods from './components/AddFoods';
 import Potlucks from './components/Potlucks';
 import PotluckDetails from './components/PotluckDetails';
 import { loginStatus } from './actions';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/helpers/PrivateRoute';
 
 import './styles/App.css';
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { getPotlucks } from '../actions';
-import Potluck from './Potluck';
+import Potluck from './helpers/Potluck';
 
 function Potlucks(props) {
     useEffect(() => {

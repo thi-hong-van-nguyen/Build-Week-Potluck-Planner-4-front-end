@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import { loginStatus } from '../actions';
-import Form from './Form';
+import Form from './helpers/Form';
 import UserSchema from '../validations/UserSchema';
 
 const initialState = {

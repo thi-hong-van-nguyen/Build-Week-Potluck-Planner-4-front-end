@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import Form from './Form'
+import Form from './helpers/Form'
 import GuestSchema from '../validations/GuestSchema'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from "react-redux"

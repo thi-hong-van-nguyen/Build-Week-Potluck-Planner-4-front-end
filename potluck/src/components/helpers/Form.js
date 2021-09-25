@@ -1,8 +1,8 @@
 import React from 'react'
 import Input from './Input'
 import Error from "./Error"
-import useForm from "../hooks/useForm"
-import { StyledForm, StyledButton } from '../styles/loginStyle'
+import useForm from "../../hooks/useForm"
+import { StyledForm, StyledButton } from '../../styles/loginStyle'
 
 export default function Form(props) {
     const { initialState, schema, submit } = props

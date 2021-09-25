@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Form from './Form'
+import Form from './helpers/Form'
 import foodSchema from "../validations/FoodSchema"
 import { connect } from 'react-redux'
 import { addFoods, postPotluck } from '../actions'

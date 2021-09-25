@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import schema from '../validations/PotluckSchema';
-import Form from "./Form"
+import Form from "./helpers/Form"
 import { connect } from "react-redux"
 import { addPotluck } from '../actions';
 
