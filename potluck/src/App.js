@@ -19,6 +19,7 @@ import './styles/App.css';
 
 function App(props) {
   const { loginStatus } = props
+  
   useEffect(() => {
     loginStatus(localStorage.getItem('token'))
   }, []);
