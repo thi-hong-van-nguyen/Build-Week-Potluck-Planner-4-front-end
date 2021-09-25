@@ -18,12 +18,9 @@ import PrivateRoute from './components/helpers/PrivateRoute';
 import './styles/App.css';
 
 function App(props) {
+  const { loginStatus } = props
   useEffect(() => {
-    if(localStorage.getItem('token')) {
-      props.loginStatus(true)
-    } else {
-      props.loginStatus(false);
-    }
+    loginStatus(localStorage.getItem('token'))
   }, []);
 
   return (
